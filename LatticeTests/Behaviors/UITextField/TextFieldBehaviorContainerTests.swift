@@ -11,7 +11,13 @@ import XCTest
 import Lattice
 
 class TextFieldBehaviorContainerTests: XCTestCase {
-    let tf = UITextField()
-    let container = TextFieldBehaviorContainer()
 
+    func testBehaviorsAreNotImmediatelyReleased() {
+        let container = TextFieldBehaviorContainer()
+        let behavior = TextFieldBehavior()
+
+        container.addBehavior(behavior)
+        XCTAssertNotNil(behavior)
+        XCTAssertEqual(1, container.behaviorCount)
+    }
 }

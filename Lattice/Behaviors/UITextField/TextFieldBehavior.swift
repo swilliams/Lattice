@@ -19,8 +19,4 @@ public class TextFieldBehavior: Behavior, UITextFieldDelegate {
             }
         }
     }
-    
-    deinit {
-        print("POOF")
-    }
 }

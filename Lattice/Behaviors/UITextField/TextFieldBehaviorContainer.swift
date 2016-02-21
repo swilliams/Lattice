@@ -12,7 +12,7 @@ import UIKit
     Treats a group of `TextFieldBehaviors` as a single delegate for a `UITextField`. When the textfield calls its delegate method, this loops through each behavior and sees if it has that particular method defined.
 */
 class TextFieldBehaviorContainer: NSObject, UITextFieldDelegate {
-    private var behaviors: [TextFieldBehavior] = []
+    private let store = NSMapTable.strongToWeakObjectsMapTable()
     
     /**
     Adds the `behavior` to the group.
@@ -20,7 +20,12 @@ class TextFieldBehaviorContainer: NSObject, UITextFieldDelegate {
     - parameter behavior: The `Behavior` to add.
     */
     func addBehavior(behavior: TextFieldBehavior) {
-        behaviors.append(behavior)
+        let dummyKey = String(format: "%p", behavior)
+        store.setObject(behavior, forKey: dummyKey)
+    }
+
+    var behaviorCount: Int {
+        return store.count
     }
     
     // MARK: - UITextFieldDelegate
@@ -55,13 +60,15 @@ class TextFieldBehaviorContainer: NSObject, UITextFieldDelegate {
     }
 
     private func onAllBehaviors(action: (UITextFieldDelegate) -> Void) {
-        for behavior in behaviors as [UITextFieldDelegate] {
+        guard let enumerator = store.objectEnumerator() else { return }
+        while let behavior = enumerator.nextObject() as? UITextFieldDelegate {
             action(behavior)
         }
     }
 
     private func allBehaviorsAre(expected: Bool, function: ((UITextFieldDelegate) -> Bool?)) -> Bool {
-        for behavior in behaviors as [UITextFieldDelegate] {
+        guard let enumerator = store.objectEnumerator() else { return expected }
+        while let behavior = enumerator.nextObject() as? UITextFieldDelegate {
             if let result = function(behavior) {
                 if result != expected {
                     return result
