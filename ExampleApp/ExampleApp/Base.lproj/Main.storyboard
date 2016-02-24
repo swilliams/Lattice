@@ -166,7 +166,13 @@
                             <constraint firstItem="2gU-Qs-MxG" firstAttribute="width" secondItem="4Vh-8x-sax" secondAttribute="width" id="z9M-gd-xuf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KiC-B5-WtJ"/>
+                    <navigationItem key="navigationItem" id="KiC-B5-WtJ">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="kvB-7f-jQW">
+                            <connections>
+                                <segue destination="EcA-Ar-SKX" kind="show" id="TaA-Gm-SZT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="EcA-Ar-SKX" kind="show" identifier="transitionToHome" id="9wh-Lh-OsV"/>
                     </connections>
@@ -289,7 +295,7 @@
             </objects>
             <point key="canvasLocation" x="1486" y="428"/>
         </scene>
-        <!--View Controller-->
+        <!--Owner-->
         <scene sceneID="2rV-5l-2iR">
             <objects>
                 <viewController id="EcA-Ar-SKX" sceneMemberID="viewController">
@@ -301,30 +307,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your User Has Been Created" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0z-Rq-3Sr">
-                                <rect key="frame" x="190" y="59" width="220" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your User Has Been Created" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0z-Rq-3Sr">
+                                <rect key="frame" x="191" y="103" width="219" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeO-oI-eUk">
-                                <rect key="frame" x="284" y="235" width="32" height="30"/>
+                                <rect key="frame" x="284" y="80" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="7Sb-Lb-wtB" kind="show" id="Lzr-LG-Qcz"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sz-uq-Mys">
+                                <rect key="frame" x="0.0" y="131" width="600" height="469"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dT-Xz-npz">
+                                        <rect key="frame" x="8" y="431" width="584" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Mb2-6W-yRm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6dT-Xz-npz" firstAttribute="top" secondItem="9sz-uq-Mys" secondAttribute="top" constant="431" id="MwH-Um-Nd2"/>
+                                    <constraint firstAttribute="trailing" secondItem="6dT-Xz-npz" secondAttribute="trailing" constant="8" id="eB1-17-Ii2"/>
+                                    <constraint firstItem="6dT-Xz-npz" firstAttribute="leading" secondItem="9sz-uq-Mys" secondAttribute="leading" constant="8" id="fnS-30-re9"/>
+                                    <constraint firstAttribute="bottom" secondItem="6dT-Xz-npz" secondAttribute="bottom" constant="8" id="grg-Ju-pLA"/>
+                                    <constraint firstItem="6dT-Xz-npz" firstAttribute="centerX" secondItem="9sz-uq-Mys" secondAttribute="centerX" id="ocC-Ne-WBW"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="x0z-Rq-3Sr" firstAttribute="top" secondItem="pDI-e0-tqo" secondAttribute="bottom" constant="39" id="1kh-CZ-VYC"/>
                             <constraint firstAttribute="centerX" secondItem="x0z-Rq-3Sr" secondAttribute="centerX" id="29h-1b-fb3"/>
                             <constraint firstItem="KeO-oI-eUk" firstAttribute="centerX" secondItem="mKU-ye-YwV" secondAttribute="centerX" id="8J7-AC-T45"/>
-                            <constraint firstItem="KeO-oI-eUk" firstAttribute="top" secondItem="pDI-e0-tqo" secondAttribute="bottom" constant="171" id="yvX-nt-q38"/>
+                            <constraint firstItem="9sz-uq-Mys" firstAttribute="top" secondItem="mKU-ye-YwV" secondAttribute="top" constant="131" id="9WA-GJ-FDa"/>
+                            <constraint firstItem="9sz-uq-Mys" firstAttribute="leading" secondItem="mKU-ye-YwV" secondAttribute="leadingMargin" constant="-20" id="MQs-5y-Xrf"/>
+                            <constraint firstItem="XYE-oo-Lhi" firstAttribute="top" secondItem="9sz-uq-Mys" secondAttribute="bottom" id="RDe-op-h7Z"/>
+                            <constraint firstItem="9sz-uq-Mys" firstAttribute="top" secondItem="x0z-Rq-3Sr" secondAttribute="bottom" constant="7.5" id="T8P-1z-Uww"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9sz-uq-Mys" secondAttribute="trailing" constant="-20" id="W90-Ld-Lun"/>
+                            <constraint firstItem="KeO-oI-eUk" firstAttribute="top" secondItem="pDI-e0-tqo" secondAttribute="bottom" constant="16" id="yvX-nt-q38"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWU-v3-fR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="hbE-nr-dZH" customClass="ScrollViewSlideDownBehavior" customModule="Lattice">
+                    <connections>
+                        <outlet property="owner" destination="EcA-Ar-SKX" id="nrW-co-4Sq"/>
+                        <outlet property="scrollView" destination="9sz-uq-Mys" id="Fbr-fV-JM4"/>
+                        <outlet property="textfield" destination="6dT-Xz-npz" id="n4O-W3-BCs"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="2224" y="428"/>
         </scene>
@@ -343,7 +381,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Third Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xao-nk-reG">
                                 <rect key="frame" x="251" y="72" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -377,4 +415,7 @@
             <point key="canvasLocation" x="717" y="732"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TaA-Gm-SZT"/>
+    </inferredMetricsTieBreakers>
 </document>
