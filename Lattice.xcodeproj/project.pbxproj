@@ -56,6 +56,10 @@
 		A77351D81B77F94D003AF4FF /* TextFieldNumericMaskBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77351D61B77F94D003AF4FF /* TextFieldNumericMaskBehavior.swift */; };
 		A77351DA1B780348003AF4FF /* LastPhotoRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77351D91B780348003AF4FF /* LastPhotoRetriever.swift */; };
 		A77351DB1B780348003AF4FF /* LastPhotoRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77351D91B780348003AF4FF /* LastPhotoRetriever.swift */; };
+		A77543831C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77543821C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift */; };
+		A77543841C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77543821C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift */; };
+		A77543861C7E37C700386663 /* ResetScrollViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77543851C7E37C700386663 /* ResetScrollViewBehavior.swift */; };
+		A77543871C7E37C700386663 /* ResetScrollViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77543851C7E37C700386663 /* ResetScrollViewBehavior.swift */; };
 		A775F9081B7961C500CFBBE4 /* TextFieldCreditCardMaskBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775F9071B7961C500CFBBE4 /* TextFieldCreditCardMaskBehavior.swift */; };
 		A775F9091B7961C500CFBBE4 /* TextFieldCreditCardMaskBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775F9071B7961C500CFBBE4 /* TextFieldCreditCardMaskBehavior.swift */; };
 		A775F90B1B7A4D6F00CFBBE4 /* TextFieldDelegateDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775F90A1B7A4D6F00CFBBE4 /* TextFieldDelegateDispatcher.swift */; };
@@ -134,6 +138,8 @@
 		A77351C11B76C26D003AF4FF /* NumberMaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberMaskTests.swift; sourceTree = "<group>"; };
 		A77351D61B77F94D003AF4FF /* TextFieldNumericMaskBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldNumericMaskBehavior.swift; sourceTree = "<group>"; };
 		A77351D91B780348003AF4FF /* LastPhotoRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastPhotoRetriever.swift; sourceTree = "<group>"; };
+		A77543821C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMoveInScrollViewBehavior.swift; sourceTree = "<group>"; };
+		A77543851C7E37C700386663 /* ResetScrollViewBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetScrollViewBehavior.swift; sourceTree = "<group>"; };
 		A775F9071B7961C500CFBBE4 /* TextFieldCreditCardMaskBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCreditCardMaskBehavior.swift; sourceTree = "<group>"; };
 		A775F90A1B7A4D6F00CFBBE4 /* TextFieldDelegateDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegateDispatcher.swift; sourceTree = "<group>"; };
 		A775F90E1B7A512300CFBBE4 /* Lattice.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Lattice.playground; sourceTree = SOURCE_ROOT; };
@@ -234,6 +240,7 @@
 		A775437E1C7CF89A00386663 /* UIScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				A77543851C7E37C700386663 /* ResetScrollViewBehavior.swift */,
 			);
 			path = UIScrollView;
 			sourceTree = "<group>";
@@ -355,6 +362,7 @@
 				A7C81A201B520CDD00D81B86 /* TextFieldDoneBehavior.swift */,
 				A7C81A211B520CDD00D81B86 /* TextFieldMaxLengthBehavior.swift */,
 				A77351D61B77F94D003AF4FF /* TextFieldNumericMaskBehavior.swift */,
+				A77543821C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift */,
 				A775F9071B7961C500CFBBE4 /* TextFieldCreditCardMaskBehavior.swift */,
 			);
 			path = UITextField;
@@ -526,6 +534,7 @@
 				A76112DF1B72A33C00C637A8 /* EmailTextValidator.swift in Sources */,
 				A76112C71B72970600C637A8 /* PostValidationFailureAction.swift in Sources */,
 				A77351D71B77F94D003AF4FF /* TextFieldNumericMaskBehavior.swift in Sources */,
+				A77543831C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift in Sources */,
 				A76112CA1B729DAE00C637A8 /* MinLengthValidator.swift in Sources */,
 				A7C81A261B520CDD00D81B86 /* Behavior.swift in Sources */,
 				A71930EA1B71144800211FD5 /* ValidatorContainer.swift in Sources */,
@@ -540,6 +549,7 @@
 				A7C81A2B1B520CDD00D81B86 /* TextFieldMaxLengthBehavior.swift in Sources */,
 				A798E40D1B69D3F4000E26FA /* NumberMasker.swift in Sources */,
 				A76112E41B72B92800C637A8 /* NumberValidator.swift in Sources */,
+				A77543861C7E37C700386663 /* ResetScrollViewBehavior.swift in Sources */,
 				A799679D1B64371400D36046 /* InputAccessoryBehavior.swift in Sources */,
 				A7C2DF4E1B62B33E00A3757E /* AccessoryBar.swift in Sources */,
 				A76113271B78F64F00C637A8 /* ImageReceiver.swift in Sources */,
@@ -582,6 +592,7 @@
 				A76112BF1B72950F00C637A8 /* PostValidationTransitioner.swift in Sources */,
 				A76112E01B72A33C00C637A8 /* EmailTextValidator.swift in Sources */,
 				A76112EC1B72C29A00C637A8 /* NAPhoneNumberValidatorTests.swift in Sources */,
+				A77543871C7E37C700386663 /* ResetScrollViewBehavior.swift in Sources */,
 				A76112B91B72670A00C637A8 /* BehaviorControl.swift in Sources */,
 				A76112DB1B72A1AF00C637A8 /* RegularExpressionValidator.swift in Sources */,
 				A76112D51B72A01500C637A8 /* MaxLengthValidatorTests.swift in Sources */,
@@ -607,6 +618,7 @@
 				A76112EA1B72C13000C637A8 /* NorthAmericanPhoneNumberValidator.swift in Sources */,
 				A77351C21B76C26D003AF4FF /* NumberMaskTests.swift in Sources */,
 				A76112E51B72B92800C637A8 /* NumberValidator.swift in Sources */,
+				A77543841C7E37B000386663 /* TextFieldMoveInScrollViewBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
