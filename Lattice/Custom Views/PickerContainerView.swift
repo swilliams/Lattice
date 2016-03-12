@@ -8,16 +8,22 @@
 
 import UIKit
 
+/**
+ A view that holds a `UIPickerView` and displays a toolbar above it. By default, the toolbar contains a `Done` button that dismisses the picker when tapped.
+*/
 public class PickerContainerView: UIView {
 
+    /// The `Done` button can be either left or right aligned.
     @IBInspectable var buttonAlignment: ToolbarButtonAlignment = .Right
 
+    /// The `UIPickerView` to display. Will need a `dataSource` and a `delegate`.
     public lazy var picker: UIPickerView = { [unowned self] in
         let _picker = UIPickerView()
         _picker.translatesAutoresizingMaskIntoConstraints = false
         return _picker
     }()
 
+    /// The Toolbar above the picker. Contains a `Done` that dismisses the picker.
     public lazy var toolbar: AccessoryBar = { [weak self] in
         let toolbar = AccessoryBar()
 
@@ -33,6 +39,7 @@ public class PickerContainerView: UIView {
         return toolbar
     }()
 
+    /// The target for the `Done` button.
     func doneTapped(sender: AnyObject) {
         animateOut()
     }
@@ -65,8 +72,11 @@ public class PickerContainerView: UIView {
         return picker.frame.height + toolbar.frame.height
     }
 
-
-
+    /**
+     Animates the picker from the bottom up into `parentView`.
+     
+     -Parameter parentView: View that contains the receiver.
+     */
     public func animateIntoParentView(parentView: UIView) {
         parentView.addSubview(self)
         layoutSubviews()
@@ -87,6 +97,9 @@ public class PickerContainerView: UIView {
             }, completion: nil)
     }
 
+    /**
+     Animates the receiver out of its `superview` and then removes it.
+    */
     public func animateOut() {
         UIView.animateWithDuration(Util.AnimationValues.duration,
             delay: 0,
