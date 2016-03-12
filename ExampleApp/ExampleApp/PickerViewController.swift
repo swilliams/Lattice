@@ -19,7 +19,6 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
 
     @IBAction func buttonTapped(sender: AnyObject) {
-        print("tapp")
         let pickerContainer = PickerContainerView()
         pickerContainer.picker.delegate = self
         pickerContainer.picker.dataSource = self

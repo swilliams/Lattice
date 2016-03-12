@@ -27,6 +27,7 @@ public class PickerContainerView: UIView {
             let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
             buttons.insert(spacer, atIndex: 0)
         }
+
         toolbar.items = buttons
         toolbar.translatesAutoresizingMaskIntoConstraints = false
         return toolbar
@@ -40,35 +41,65 @@ public class PickerContainerView: UIView {
         addSubview(picker)
         addSubview(toolbar)
         if #available(iOS 9.0, *) {
-        NSLayoutConstraint.activateConstraints([
-            picker.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-            picker.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-            picker.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
-            toolbar.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-            toolbar.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-            toolbar.topAnchor.constraintEqualToAnchor(self.topAnchor)
-            ])
+            NSLayoutConstraint.activateConstraints([
+                picker.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
+                picker.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
+                picker.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
+                toolbar.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
+                toolbar.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
+                toolbar.topAnchor.constraintEqualToAnchor(self.topAnchor)
+                ])
+            if let superview = self.superview {
+                translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activateConstraints([
+                    self.leadingAnchor.constraintEqualToAnchor(superview.leadingAnchor),
+                    self.trailingAnchor.constraintEqualToAnchor(superview.trailingAnchor),
+                    self.bottomAnchor.constraintEqualToAnchor(superview.bottomAnchor),
+                    self.heightAnchor.constraintEqualToConstant(height)
+                    ])
+            }
         }
     }
 
+    private var height: CGFloat {
+        return picker.frame.height + toolbar.frame.height
+    }
+
+
+
     public func animateIntoParentView(parentView: UIView) {
-        let height = picker.frame.height + toolbar.frame.height
         parentView.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        if #available(iOS 9.0, *) {
-            NSLayoutConstraint.activateConstraints([
-                self.leadingAnchor.constraintEqualToAnchor(parentView.leadingAnchor),
-                self.trailingAnchor.constraintEqualToAnchor(parentView.trailingAnchor),
-                self.bottomAnchor.constraintEqualToAnchor(parentView.bottomAnchor),
-                self.heightAnchor.constraintEqualToConstant(height)
-                ])
-        } else {
-            // Fallback on earlier versions
-        }
+        layoutSubviews()
+
+        // Animate by using CGAffineTransform
+        let offset = CGAffineTransformMakeTranslation(0, height)
+        transform = offset
+
+        UIView.animateWithDuration(Util.AnimationValues.duration,
+            delay: 0,
+            usingSpringWithDamping: Util.AnimationValues.damping,
+            initialSpringVelocity: Util.AnimationValues.velocity,
+            options: .CurveEaseInOut,
+            animations: { [unowned self] in
+
+            self.transform = CGAffineTransformIdentity
+
+            }, completion: nil)
     }
 
     public func animateOut() {
-        removeFromSuperview()
+        UIView.animateWithDuration(Util.AnimationValues.duration,
+            delay: 0,
+            usingSpringWithDamping: Util.AnimationValues.damping,
+            initialSpringVelocity: Util.AnimationValues.velocity,
+            options: .CurveEaseInOut,
+            animations: { [unowned self] in
+                let offset = CGAffineTransformMakeTranslation(0, self.height)
+                self.transform = offset
+
+            }, completion: { [weak self] completion in
+                self?.removeFromSuperview()
+        })
     }
 
 }

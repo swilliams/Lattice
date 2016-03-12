@@ -12,4 +12,10 @@ struct Util {
     static var screenWidth: CGFloat {
         return UIScreen.mainScreen().bounds.width
     }
+
+    struct AnimationValues {
+        static let duration: NSTimeInterval = 0.33
+        static let damping: CGFloat = 0.6
+        static let velocity: CGFloat = 0.5
+    }
 }
