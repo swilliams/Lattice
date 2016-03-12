@@ -47,24 +47,22 @@ public class PickerContainerView: UIView {
     public override func layoutSubviews() {
         addSubview(picker)
         addSubview(toolbar)
-        if #available(iOS 9.0, *) {
+        NSLayoutConstraint.activateConstraints([
+            picker.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
+            picker.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
+            picker.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
+            toolbar.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
+            toolbar.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
+            toolbar.topAnchor.constraintEqualToAnchor(self.topAnchor)
+            ])
+        if let superview = self.superview {
+            translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activateConstraints([
-                picker.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-                picker.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-                picker.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
-                toolbar.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-                toolbar.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-                toolbar.topAnchor.constraintEqualToAnchor(self.topAnchor)
+                self.leadingAnchor.constraintEqualToAnchor(superview.leadingAnchor),
+                self.trailingAnchor.constraintEqualToAnchor(superview.trailingAnchor),
+                self.bottomAnchor.constraintEqualToAnchor(superview.bottomAnchor),
+                self.heightAnchor.constraintEqualToConstant(height)
                 ])
-            if let superview = self.superview {
-                translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activateConstraints([
-                    self.leadingAnchor.constraintEqualToAnchor(superview.leadingAnchor),
-                    self.trailingAnchor.constraintEqualToAnchor(superview.trailingAnchor),
-                    self.bottomAnchor.constraintEqualToAnchor(superview.bottomAnchor),
-                    self.heightAnchor.constraintEqualToConstant(height)
-                    ])
-            }
         }
     }
 
