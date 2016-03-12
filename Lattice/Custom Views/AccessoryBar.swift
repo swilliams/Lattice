@@ -13,7 +13,7 @@ private let standardToolbarHeight: CGFloat = 44
 /**
 A Toolbar that is displayed above the keyboard as an inputAccessoryView.
 */
-class AccessoryBar: UIToolbar {
+public class AccessoryBar: UIToolbar {
     
     init() {
         // TODO: will this work when the screen is rotated?
@@ -21,7 +21,7 @@ class AccessoryBar: UIToolbar {
         super.init(frame: frame)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 

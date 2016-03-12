@@ -9,13 +9,6 @@
 import UIKit
 
 /**
-    Buttons can be left or right aligned.
-*/
-public enum ToolbarButtonAlignment {
-    case Left, Right
-}
-
-/**
     Display a list of buttons above the keyboard for a `UITextView` or `UITextField`.
 */
 public class InputAccessoryBehavior: Behavior {
